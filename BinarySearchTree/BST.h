@@ -1,27 +1,38 @@
+#pragma once
+
 #include <iostream>
 
 template <typename T>
 
-class Node {
+class TreeNode {
 public:
-	int key;
-	Node* left;
-	Node* right;
+
+	T data;
+	TreeNode* left;
+	TreeNode* right;
 };
 
 template <typename T>
 
-class BinarySearchTree
+class BSTree
 {
 public:
-	Node <T>* head;
-	Node <T>* tail;
-	int linkSize;
-	BinarySearchTree() {
-		head = nullptr;
-		tail = nullptr;
-		linkSize = 0;
+	TreeNode<T>* root;
+	BSTree() {
+		root = NULL;
 	}
-	void InsertNode(T newData);
+	//Insert Node
+	TreeNode<T> insertNode(TreeNode<T>* node, T newData);
+	//Delete node function
+	TreeNode<T>* Delete(TreeNode<T>* node, T newData);
+	//Preorder traversal
+	TreeNode<T>* FindMax(TreeNode<T>* node);
+	void preorder(TreeNode<T>* root);
+	TreeNode<T>* getNode(T val);
+
+private:
+	
+
+	
 
 };
