@@ -8,8 +8,14 @@ class TreeNode {
 public:
 
 	T key;
-	TreeNode* left;
-	TreeNode* right;
+	TreeNode* left = NULL;
+	TreeNode* right = NULL;
+	TreeNode(T key)
+	{
+		this->key = key;
+		left = NULL;
+		right = NULL;
+	}
 };
 
 template <typename T>
