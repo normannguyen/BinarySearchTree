@@ -17,35 +17,15 @@ template <typename T>
 
 TreeNode<T> BSTree<T>::insertNode(TreeNode<T>* node, T value)
 {
-	if (root == NULL)  // BST was empty
-		return getNode(value);  // create the first node
+	if (root == NULL)
+		return getNode(value);
 
-	TreeNode* tmpNode = root;
-	while (tmpNode != NULL) {  // loop until end of tree nodes
-		// process right node
-		if (tmpNode->key < value) {
-			if (tmpNode->right == NULL) {  // found the spot to insert
-				tmpNode->right = getNode(value);
-				break;
-			}
-			else {  // continue on the right branch
-				tmpNode = tmpNode->right;
-				continue;
-			}
-		}
+	if (root->key < value)
+		root->right = insertNode(root->right, value);
 
-		// process left node
-		if (tmpNode->key > value) {
-			if (tmpNode->left == NULL) {  // found the spot to insert
-				tmpNode->left = getNode(value);
-				break;
-			}
-			else {  // continue on the left branch
-				tmpNode = tmpNode->left;
-				continue;
-			}
-		}
-	}
+	if (root->key < value)
+		root->left = insertNode(root->left, value);
+
 	return root;
 }
 template<typename T>
