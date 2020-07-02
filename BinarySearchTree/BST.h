@@ -7,7 +7,7 @@ template <typename T>
 class TreeNode {
 public:
 
-	T data;
+	T key;
 	TreeNode* left;
 	TreeNode* right;
 };
@@ -27,7 +27,7 @@ public:
 	TreeNode<T>* Delete(TreeNode<T>* node, T newData);
 	//Preorder traversal
 	TreeNode<T>* FindMax(TreeNode<T>* node);
-	void preorder(TreeNode<T>* root);
+	void inorder(TreeNode<T>* root);
 	TreeNode<T>* getNode(T val);
 
 private:
