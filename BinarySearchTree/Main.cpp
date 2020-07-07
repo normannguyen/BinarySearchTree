@@ -22,8 +22,11 @@ int main()
 		{
 			//Find
 			case 1:
-			cout << "Enter the value you wanted to find: ";
-			break;
+			{
+				cout << "Enter the value you wanted to find: ";
+				break;
+			}
+			
 			//Insert
 			case 2:
 			{

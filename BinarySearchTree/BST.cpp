@@ -3,6 +3,7 @@
 
 using namespace std;
 
+//Get Node
 template<typename T>
 TreeNode<T>* BSTree<T>::getNode(T val)
 {
@@ -14,7 +15,7 @@ TreeNode<T>* BSTree<T>::getNode(T val)
 }
 
 template <typename T>
-
+//Insert Node
 TreeNode<T> BSTree<T>::insertNode(TreeNode<T>* node, T value)
 {
 	if (root == NULL)
@@ -28,46 +29,52 @@ TreeNode<T> BSTree<T>::insertNode(TreeNode<T>* node, T value)
 
 	return root;
 }
+//Delete Function
 template<typename T>
 TreeNode<T>* BSTree<T>::Delete(TreeNode<T>* node, T key)
 {
-	if (root == NULL) return root;
-	if (key < root->key)
-		root->left = deleteNode(root->left, key);
-	else if (key > root->key)
-		root->right = deleteNode(root->right, key);
-	else {
-		if (root->left == NULL) {
-			struct node* temp = root->right;
-			free(root);
-			return temp;
-		}
-		else if (root->right == NULL) {
-			struct node* temp = root->left;
-			free(root);
-			return temp;
-		}
-		struct node* temp = minValueNode(root->right);
-		root->key = temp->key;
-		root->right = deleteNode(root->right, temp->key);
+	if (node == NULL)
+	{
+		return node;
 	}
-	return root;
+	if (node->key > key)
+	{
+		node->left = deleteNode(node->left, key);
+	}
+	else if (key > root->key)
+	{
+		node->right = deleteNode(node->right, key);
+	}
+	if (node->left == NULL)
+	{
+		TreeNode<T>* newNode = node->right;
+		delete node;
+		return newNode;
+	}
+	else if (node->right == NULL)
+	{
+		TreeNode<T>* newNode = node->left;
+		delete node;
+		return newNode;
+	}
+
 }
 
-
+//Create The Max
 template<typename T>
 TreeNode<T>* BSTree<T>::FindMax(TreeNode<T>* node)
 {
 	if (root == NULL)
 		return NULL;
 
-	while (root->right != NULL)
+	while (root->right != nullptr)
 	{
 		root = root->right;
 	}
 	return root;
 }
 
+//Inorder Function
 template<typename T>
 void BSTree<T>::inorder(TreeNode<T>* root)
 {
