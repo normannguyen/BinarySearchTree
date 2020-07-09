@@ -15,6 +15,7 @@ int main()
 	//Node
 	Node<int>* root = NULL;
 
+	//Integers for Value for the number and choices where 7 is exit.
 	int choice = 0;
 	int value = 0;
 	do
@@ -43,15 +44,15 @@ int main()
 			case 2:
 			{
 				cout << "Numbers Loaded, go check on Traversal Method.";
-				cin >> value;
-				root = BST.insertNode(root, 6);
-				BST.insertNode(root, 1);
-				BST.insertNode(root, 3);
-				BST.insertNode(root, 2);
-				BST.insertNode(root, 5);
-				BST.insertNode(root, 7);
-				BST.insertNode(root, 9);
-				BST.insertNode(root, 8);
+				root = BST.insertNode(root, 50);
+				BST.insertNode(root, 20);
+				BST.insertNode(root, 30);
+				BST.insertNode(root, 40);
+				root = BST.insertNode(root, 10);
+				BST.insertNode(root, 50);
+				BST.insertNode(root, 70);
+				BST.insertNode(root, 90);
+				BST.insertNode(root, 80);
 				break;
 			}
 			
@@ -67,7 +68,7 @@ int main()
 			//Mininum
 			case 4:
 			{
-				cout << "Minn = " << BST.FindMin(root)->key;
+				cout << "Min = " << BST.FindMin(root)->key;
 				break;
 			}
 			//Maximum

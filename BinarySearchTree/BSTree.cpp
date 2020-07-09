@@ -40,30 +40,38 @@ Node<T>* BSTree<T>::Delete(Node<T>* root, T value)
 	{
 		return root;
 	}
+	//If smaller, then the root goes to the left and delete
 	if (value < root->key)
 	{
 		root->left = Delete(root->left, value);
 	}
+	//If greater, it will go to the right and delete
 	else if (value > root->key)
 	{
 		root->right = Delete(root->right, value);
 	}
 	//If the data is the same, 
 	else {
+		//If one child or none
 		if (root->left == NULL) {
 			Node<T>* temp = root->right;;
-			delete root;
+			delete (root);
 			return temp;
 		}
 		//
 		else if (root->right == NULL) {
 			Node<T>* temp = root->left;;
-			delete root;
+			delete (root);
 			return temp;
 		}
+
+		//If two children,
 		else {
+			//
 			Node<T>* temp = FindMin(root->right);
+			//
 			root->key = temp->key;
+			//
 			root->right = Delete(root->right, temp->key);
 		}
 	}
